@@ -32,8 +32,10 @@
 
  					<div class="row no-gutters">
  						<div class="col-6" id="move"><i class="fas fa-arrows-alt fa-3x fa-fw"></i></div>
- 						<div class="col-6"><i class="fas fa-exclamation-triangle fa-3x fa-fw"></i></div>
+ 						<div class="col-6" id="triangle"><i class="fas fa-exclamation-triangle fa-3x fa-fw"></i></div>
  					</div>
+
+ 					<hr>
  				
  					<div class="row no-gutters">
 	 					<div class="btn-group dropright">
@@ -100,7 +102,7 @@
 						  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
 						    Bg
 						  </button>
-						  <div class="dropdown-menu color-picker">
+						  <div class="dropdown-menu color-picker" id="background">
 						    <div class="row">
 						    	<div class="col-3" style="background-color: black;"></div>
 						    	<div class="col-3" style="background-color: red;"></div>
@@ -125,6 +127,8 @@
 						</div>
  					</div>
 
+ 					<hr>
+
  					<div class="row no-gutters">
  						<div class="col-6"><i class="far fa-arrow-alt-circle-left fa-3x fa-fw"></i></div>
  						<div class="col-6"><i class="far fa-arrow-alt-circle-right fa-3x fa-fw"></i></div>
@@ -135,47 +139,42 @@
  					</div>
  				</div>
 
- 				<div class="col-11 main-bar"> <!-- main bar -->
+ 				<div class="col-9 main-bar"> <!-- main bar -->
  					<div class="row no-gutters" id="topbar">
 	 					<div id="thickness">
-	 						<div class="col-12">
-	 							<div class="row no-gutters">
-	 								<i class="fas fa-circle fa-fw fa-xs"></i>
-		 							<i class="fas fa-circle fa-fw fa-sm"></i>
-		 							<i class="fas fa-circle fa-fw fa-lg"></i>
-		 							<i class="fas fa-circle fa-fw fa-2x"></i>
-		 							<i class="fas fa-circle fa-fw fa-3x"></i>
-		 							<i class="fas fa-circle fa-fw fa-4x"></i>
-	 							</div>
+ 							<div class="row no-gutters">
+	 							<i class="fas fa-circle fa-fw fa-sm"></i>
+	 							<i class="fas fa-circle fa-fw fa-lg"></i>
+	 							<i class="fas fa-circle fa-fw fa-2x"></i>
+	 							<i class="fas fa-circle fa-fw fa-3x"></i>
+	 							<i class="fas fa-circle fa-fw fa-4x"></i>
+ 							</div>
 	 							
-	 						</div>
 	 					</div>
 	 					<div class="row no-gutters" id="font-option">
-	 						<div class="col-12">
-	 							<div class="row no-gutters">
-	 								<div class="font_style">
-	 									<label for="italic">italic</label>
-										<input type="checkbox" name="font_style" id="italic">		
-	 								</div>
-									
-	 								<div class="font_weight">
-	 									<label for="bold">bold</label>
-	 									<input type="checkbox" name="font_weight" id="bold">									
-	 								</div>
+							<span class="font_style">
+								<label for="italic">italic</label>
+								<input type="checkbox" name="font_style" id="italic">		
+							</span>
+						
+							<span class="font_weight">
+								<label for="bold">bold</label>
+								<input type="checkbox" name="font_weight" id="bold">									
+							</span>
 
-	 								<div class="font_size">
-		 								<label for="font-size">Font Size</label>
-		 								<select id="font-size">
-		 									<option value=18>18px</option>
-		 									<option value=24>24px</option>
-		 									<option value=36>36px</option>
-		 								</select> 									
-	 								</div>
-
-	 							</div>
-	 							
-	 						</div>
+							<span class="font_size">
+								<label for="font-size">Font Size</label>
+								<select id="font-size">
+									<option value=18>18px</option>
+									<option value=24>24px</option>
+									<option value=36>36px</option>
+								</select> 									
+							</span>
 	 					</div> 						
+ 					</div>
+
+ 					<div class="row no-gutters">
+ 						<canvas  id="canvas" width="832.5" height="460"></canvas>
  					</div>
 
  				</div>
