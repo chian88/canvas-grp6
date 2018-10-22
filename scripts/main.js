@@ -27,17 +27,17 @@ $(function() {
 
 	});
 
-		//color panel
+	//color panel
 
-		$('.stroke >> div').on('click',function(){
-			let cls = $(this).attr('class').split(' ')[1];
-			currentFunction.strokeColor(cls);
-		})
-	
-		$('.fill >> div').on('click',function(){
-			let cls = $(this).attr('class').split(' ')[1];
-			currentFunction.fillColor(cls);
-		})  
+	$('.stroke >> div').on('click',function(){
+		let cls = $(this).attr('class').split(' ')[1];
+		currentFunction.strokeColor(cls);
+	})
+
+	$('.fill >> div').on('click',function(){
+		let cls = $(this).attr('class').split(' ')[1];
+		currentFunction.fillColor(cls);
+	})  
 
 
 	function extractColorFromEvent($event) {
