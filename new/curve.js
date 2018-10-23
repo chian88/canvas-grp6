@@ -1,68 +1,78 @@
-let canvas = document.getElementById('c');
-let context = canvas.getContext('2d');
-let cw = canvas.width;
-let ch = canvas.height;
-let result = [];
-function clean() {
-    context.clearRect(0,0,cw,ch);
-}
-class mouseAction{
+// let canvas = document.getElementById('c');
+// let context = canvas.getContext('2d');
+// let cw = canvas.width;
+// let ch = canvas.height;
+// let history = [];
+// context.fillStyle = 'transparent'
+// function clean() {
+//     context.clearRect(0,0,cw,ch);
+// }
+// class mouseAction{
+//     constructor(){
+//         this.dragging = false;
+//         this.context = context;
+//         this.centerX;
+//         this.centerY;
+//         this.endX;
+//         this.endY;
+//         this.forging = false;
+//         this.press();
+//         this.drag();
+//         this.outside();
+//     }
+//     press(){
+//         $('#c').mousedown(e =>{
+//             if(e.button == 0){
+//                 this.centerX = e.offsetX;
+//                 this.centerY = e.offsetY;
+//                 this.context.moveTo(this.centerX, this.mouseY);
+//             }
+//             if (e.button == 2) {
+//                 this.dragging = false;
+//                 // clean();
+//                 this.render();
+//                 history.push(this);
+//                 // push object to result
+//             }else{
+//                 this.dragging = true;
+//             }
+//         })
+//     }
+//     drag(){
+//         $('#c').mousemove(e =>{
+//             if (this.dragging) {
+//                 this.twistPx = this.endX = e.offsetX;
+//                 this.twistPy = this.endY = e.offsetY;
+//                 clean();
+//                 this.display();
+//             }
+//         })
+//     }
+//     outside(){
+//         $('#c').mouseleave(() =>{
+//             this.dragging = false;
+//         })
+//     }
+//     display(){
+//         this.context.beginPath();
+//         this.draw()
+//         this.context.stroke();
+//         this.context.fill();
+//     }
+// }
+
+class Curve extends mouseAction{
     constructor(){
-        this.dragging = false;
-        this.context = context;
-        this.centerX;
-        this.centerY;
-        this.distX;
-        this.distY;
-        this.forging = false;
-        this.press();
-        this.drag();
-        this.outside();
-        this.release();
+        super();
+        this.type = 'cruve';
+        this.twistPx;
+        this.twistPy;
+        this.dot = [];
         this.keypressing();
     }
-    press(){
-        $('#c').mousedown(e =>{
-            this.centerX = e.offsetX;
-            this.centerY = e.offsetY;
-            this.context.moveTo(this.centerX, this.mouseY);
-            if (e.button == 2) {
-                this.dragging = false;
-                // this.display();
-                result.push(this);
-                result[0].display();
-                // push object to result
-            }else{
-                this.dragging = true;
-            }
-        })
-    }
-    drag(){
-        $('#c').mousemove(e =>{
-            if (this.dragging) {
-                this.twistPx = this.distX = e.offsetX;
-                this.twistPy = this.distY = e.offsetY;
-                clean();
-                this.display();
-            }
-        })
-    }
-    outside(){
-        $('#c').mouseleave(() =>{
-            this.dragging = false;
-        })
-    }
-    release(){
-        $('#c').mouseup(()=>{
-            // this.render();
-        })
-    }
-    display(){
-        this.context.beginPath();
+    draw(){
         this.context.moveTo(this.centerX, this.centerY)
-        this.draw()
-        this.context.stroke();
-        this.context.fill();
+        this.context.quadraticCurveTo(this.twistPx, this.twistPy, this.endX, this.endY)
     }
     keypressing(){
         $('body').keydown(e=>{
@@ -77,50 +87,35 @@ class mouseAction{
         $('body').keyup(e=>{
             if (e.which ==17 || e.keycode == 17) {
                 this.forging = false;
+                this.dot.push([
+                    [this.centerX, this.centerY],
+                    [this.twistPx, this.twistPy],
+                    [this.endX, this.endY]
+                ])
+                this.centerX = this.endX;
+                this.centerY = this.endY;
+                this.context.moveTo(this.centerX, this.centerY);
                 this.dragging = true;
             }
         })
     }
-}
-
-// class Line extends mouseAction{
-//     constructor(){
-//         super();
-//         this.type = 'line';
-//         this.dot = [];
-//     }
-//     draw(){
-//         this.context.lineTo(this.distX, this.distY);
-//         this.context.moveTo(this.distX, this.distY);
-//     }
-//     render(){
-//         this.context.beginPath();        
-//         this.context.moveTo(this.dot[0][0], this.dot[0][1])        
-//         if (this.dot.length > 1) {
-//             for(let i = 1 ; i < this.dot.length; i++){
-//                 this.context.lineTo(this.dot[i][0], this.dot[i][1])
-//             }
-//         }
-//         this.context.stroke();
-//         this.context.fill();
-//     }
-// }
-class Curve extends mouseAction{
-    constructor(){
-        super();
-        this.type = 'cruve';
-        this.twistPx;
-        this.twistPy;
-    }
-    draw(){
-        this.context.quadraticCurveTo(this.twistPx, this.twistPy, this.distX, this.distY)
-    }
     forge(){
-        if (this.forging) {
-            $('#c').mousemove(e=>{
+        $('#c').mousemove(e=>{
+            if (this.forging) {
                 this.twistPx = e.offsetX;
                 this.twistPy = e.offsetY;
-            })
+            }
+        })
+    }
+    render(){
+        if (this.dot.length > 0) {
+            for(let i = 0 ; i < this.dot.length; i++){
+                this.context.beginPath();        
+                this.context.moveTo(this.dot[i][0][0], this.dot[i][0][1])        
+                this.context.quadraticCurveTo(this.dot[i][1][0], this.dot[i][1][1], this.dot[i][2][0], this.dot[i][2][1])
+                this.context.stroke();
+                this.context.fill();
+            }
         }
     }
 }

@@ -25,19 +25,21 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-<script src="./shape.js"></script>
-<!-- <script src="./line.js"></script> -->
+  <script src="./common.js"></script>
+<!-- <script src="./shape.js"></script> -->
+<script src="./polygon.js"></script>
 <!-- <script src="./brush.js"></script> -->
 <!-- <script src="./text.js"></script> -->
 <!-- <script src="./curve.js"></script> -->
 <script>
     document.getElementById('c').addEventListener('contextmenu', event => event.preventDefault());
+    let history = [];
     // new Rectangle()
-    // new Line()
+    // new Polygon()
     // new Ellipse();
     // new Brush();
     // new Text();
-    // new Circle();
     // new Curve();
+    history.map(data =>{data.render()})
 </script>
 </html>
