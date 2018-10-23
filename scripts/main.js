@@ -23,12 +23,34 @@ $(function() {
 		var $event = $(e.target);
 		var color = extractColorFromEvent($event);
 
-		$("#canvas").css("background-color", color);
+		$("#canvasField").css("background-color", color);
 
 	});
 
-
+	
+	
 	function extractColorFromEvent($event) {
 		return $event.attr('style').split(":")[1].trim().replace(";", '');
 	}
+	
+	let curent;
+	$('#clear').on('click', ()=>{
+		clean();
+	})
+	$('#line').on('click', ()=>{
+		console.log('line');
+		current = new Curve();
+	})
+	$('#circle').on('click', ()=>{
+		console.log('circle');
+		current = new Ellipse();
+	})
+	$('#polygon').on('click', ()=>{
+		console.log('polygon');
+		current = new Polygon();
+	})
+	$('#font').on('click', ()=>{
+		console.log('text');
+		current = new Text();
+	})
 })
