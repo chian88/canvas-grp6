@@ -8,9 +8,15 @@ function clean() {
 }
 function render(data){
         if(data[0] == 'rect'){
+            context.beginPath();
             context.rect(data[1], data[2], data[3] - data[1], data[4] - data[2])
+            context.stroke();
+            context.fill();
         }else if(data[0] == 'ellipse'){
+            context.beginPath();
             context.ellipse(data[1], data[2], Math.abs(data[3] - data[1]) , Math.abs(data[4] - data[2]), 0 , 0 , 2*Math.PI)
+            context.stroke();
+            context.fill();
         }else if(data[0] == 'text'){
             context.fillText(data[1] ,data[2] ,data[3]);
         }else if(data[0] == 'curve'){
@@ -24,8 +30,6 @@ function render(data){
             }
         }else if(data[0] == 'polygon'){
             let dot = data[1]
-            console.log(dot);
-            
             context.beginPath();        
             context.moveTo(dot[0][0], dot[0][1])        
             if (dot.length > 1) {
@@ -47,7 +51,6 @@ class mouseAction{
         this.endX;
         this.endY;
         this.forging = false;
-        this.output = [];
         this.press();
         this.drag();
         this.outside();
@@ -65,22 +68,25 @@ class mouseAction{
             }
             if (e.button == 2) {
                 this.dragging = false;
-                if(this.type == 'polygon'){
+                if(this.type == 'polygon' || this.type == 'curve'){
                     this.dot.push([this.endX, this.endY])
                 }
                 // clean();
                 console.log('finish');
                 
                 if(this.type == 'rect' || this.type == 'ellipse'){
-                    this.output.push(this.type, this.centerX, this.centerY, this.endX, this.endY)
+                    debugger;
+                    history.push([this.type, this.centerX, this.centerY, this.endX, this.endY])
                 }else if(this.type == 'text'){
-                    this.output.push(this.type, this.text, this.centerX, this.centerY)
+                    debugger;
+                    history.push([this.type, this.text, this.centerX, this.centerY])
                 }else if(this.type == 'curve' || this.type == 'polygon'){ 
-                    this.output.push(this.type, this.dot)
+                    debugger;
+                    history.push([this.type, this.dot])
                 }
-                history.push(this.output);
                 history.map(data => render(data))
                 // push object to result
+                this.dot =[];
             }else{
                 this.dragging = true;
             }
