@@ -1,23 +1,3 @@
-// let canvas = document.getElementById('c');
-// let context = canvas.getContext('2d');
-// let cw = canvas.width;
-// let ch = canvas.height;
-// let history = []
-
-// function clean() {
-//     context.clearRect(0,0,cw,ch);
-// }
-// class mouseAction{
-//     constructor(){
-//         this.context = context;
-//         this.centerX;
-//         this.centerY;
-//         this.press();
-//         this.fontSize();
-//     }
-    
-// }
-
 class Text extends mouseAction{
     constructor(){
         super();

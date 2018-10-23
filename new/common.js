@@ -2,39 +2,40 @@ let canvas = document.getElementById('canvasField');
 let context = canvas.getContext('2d');
 let cw = canvas.width;
 let ch = canvas.height;
-
+let history = [];
 function clean() {
     context.clearRect(0,0,cw,ch);
 }
-function render(input){
-        let data = input[0]
-        console.log(data);
-        
+function render(data){
         if(data[0] == 'rect'){
             context.rect(data[1], data[2], data[3] - data[1], data[4] - data[2])
         }else if(data[0] == 'ellipse'){
             context.ellipse(data[1], data[2], Math.abs(data[3] - data[1]) , Math.abs(data[4] - data[2]), 0 , 0 , 2*Math.PI)
         }else if(data[0] == 'text'){
             context.fillText(data[1] ,data[2] ,data[3]);
-        }else if(data[0] == 'curve'){ 
-            for(let i = 0 ; i < output; i++){
+        }else if(data[0] == 'curve'){
+            let dot = data[1]
+            for(let i = 0 ; i < dot.length; i++){
                 context.beginPath();        
-                context.moveTo(data[i][0][0], data[i][0][1])        
-                context.quadraticCurveTo(data[i][1][0], data[i][1][1], data[i][2][0], data[i][2][1])
+                context.moveTo(dot[i][0][0], dot[i][0][1])        
+                context.quadraticCurveTo(dot[i][1][0], dot[i][1][1], dot[i][2][0], dot[i][2][1])
                 context.stroke();
                 context.fill();
             }
         }else if(data[0] == 'polygon'){
+            let dot = data[1]
+            console.log(dot);
+            
             context.beginPath();        
-            context.moveTo(data[1][0][0], data[1][0][1])        
-            if (data[1].length > 1) {
-                for(let i = 1 ; i < data[1]; i++){
-                    this.context.lineTo(data[1][i][0], data[1][i][1])
+            context.moveTo(dot[0][0], dot[0][1])        
+            if (dot.length > 1) {
+                for(let i = 1 ; i < dot.length; i++){
+                    context.lineTo(dot[i][0], dot[i][1])
                 }
             }
-            this.context.closePath();
-            this.context.stroke();
-            this.context.fill();
+            context.closePath();
+            context.stroke();
+            context.fill();
         }
     }
 class mouseAction{
@@ -79,8 +80,6 @@ class mouseAction{
                 }
                 history.push(this.output);
                 history.map(data => render(data))
-                // console.log(history);
-                
                 // push object to result
             }else{
                 this.dragging = true;
