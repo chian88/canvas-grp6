@@ -41,6 +41,22 @@ $(function() {
 		currentFunction.fillColor(cls);
 	})  
 
+	//undo redo
+
+	$('#undo').on('click',function(){
+		undo();
+	})
+
+	$('#redo').on('click',function(){
+		redo();
+	})
+
+	$('#clear').on('click',function(){
+		clear();
+	})
+
+
+
 
 	function extractColorFromEvent($event) {
 		return $event.attr('style').split(":")[1].trim().replace(";", '');

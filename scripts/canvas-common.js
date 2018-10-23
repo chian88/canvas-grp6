@@ -65,6 +65,12 @@ function redo(){
     }  
 }
 
+
+function clear(){
+    contextReal.clearRect(0,0,canvasReal.width,canvasReal.height);
+    complete();
+}
+
 function complete(){
     doneList.push(contextReal.getImageData(0,0,canvasReal.width,canvasReal.height));  // undo code (add in command which complete the drawing)
     redoList = []; //redo code (add in command which complete the drawing);
