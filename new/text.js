@@ -29,7 +29,7 @@ class Text extends mouseAction{
         this.context.fillText(this.text ,this.centerX ,this.centerY);
     }
     press(){
-        $('#c').mousedown(e =>{
+        $('#canvasField').mousedown(e =>{
             this.centerX = e.offsetX;
             this.centerY = e.offsetY;
             this.context.moveTo(this.centerX,this.centerY);

@@ -67,6 +67,7 @@ class Rectangle extends mouseAction{
         super();
         this.keypressing();
         this.type = "rect";
+        this.ouput = [];
     }
     draw(){
         this.context.rect(this.centerX, this.centerY, this.endX - this.centerX, this.endY - this.centerY)
@@ -116,7 +117,8 @@ class Ellipse extends mouseAction{
     constructor(){
         super();
         this.keypressing();
-        this.type = 'ellipse'
+        this.type = 'ellipse';
+        this.output = [];
     }
     draw(){
         this.context.ellipse(this.centerX, this.centerY, Math.abs(this.endX - this.centerX) , Math.abs(this.endY - this.centerY), 0 , 0 , 2*Math.PI)

@@ -1,8 +1,7 @@
-let canvas = document.getElementById('canvas');
+let canvas = document.getElementById('canvasField');
 let context = canvas.getContext('2d');
 let cw = canvas.width;
 let ch = canvas.height;
-
 
 function clean() {
     context.clearRect(0,0,cw,ch);
@@ -17,12 +16,14 @@ class mouseAction{
         this.endX;
         this.endY;
         this.forging = false;
+        this.output = [];
         this.press();
         this.drag();
         this.outside();
     }
     press(){
-        $('#c').mousedown(e =>{
+        
+        $('#canvasField').mousedown(e =>{
             if(e.button == 0){
                 this.centerX = e.offsetX;
                 this.centerY = e.offsetY;
@@ -37,8 +38,19 @@ class mouseAction{
                     this.dot.push([this.endX, this.endY])
                 }
                 // clean();
+                console.log('finish');
+                
+                if(this.type == 'rect' || this.type == 'ellipse'){
+                    this.output.push([this.type, this.centerX, this.centerY, this.endX, this.endY])
+                }else if(this.type == 'text'){
+                    this.output.push([this.type, this.text, this.centerX, this.centerY])
+                }else if(this.type == 'curve' || this.type == 'polygon'){  
+                    console.log('logging');
+                    
+                    this.output.push([this.type, this.dot])
+                }
+                history.push(this.output);
                 this.render();
-                history.push(this);
                 // push object to result
             }else{
                 this.dragging = true;
@@ -46,7 +58,7 @@ class mouseAction{
         })
     }
     drag(){
-        $('#c').mousemove(e =>{
+        $('#canvasField').mousemove(e =>{
             if (this.dragging) {
                 this.twistPx = this.endX = e.offsetX;
                 this.twistPy = this.endY = e.offsetY;
@@ -56,7 +68,7 @@ class mouseAction{
         })
     }
     outside(){
-        $('#c').mouseleave(() =>{
+        $('#canvasField').mouseleave(() =>{
             this.dragging = false;
         })
     }

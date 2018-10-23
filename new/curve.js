@@ -70,10 +70,6 @@ class Curve extends mouseAction{
         this.dot = [];
         this.keypressing();
     }
-    draw(){
-        this.context.moveTo(this.centerX, this.centerY)
-        this.context.quadraticCurveTo(this.twistPx, this.twistPy, this.endX, this.endY)
-    }
     keypressing(){
         $('body').keydown(e=>{
             if(e.which == 17 || e.keycode ==17){
@@ -100,19 +96,23 @@ class Curve extends mouseAction{
         })
     }
     forge(){
-        $('#c').mousemove(e=>{
+        $('#canvasField').mousemove(e=>{
             if (this.forging) {
                 this.twistPx = e.offsetX;
                 this.twistPy = e.offsetY;
             }
         })
     }
+    draw(){
+        this.context.moveTo(this.centerX, this.centerY)
+        this.context.quadraticCurveTo(this.twistPx, this.twistPy, this.endX, this.endY)
+    }
     render(){
-        if (this.dot.length > 0) {
-            for(let i = 0 ; i < this.dot.length; i++){
+        if (this.output[1] > 0) {
+            for(let i = 0 ; i < this.output[1]; i++){
                 this.context.beginPath();        
-                this.context.moveTo(this.dot[i][0][0], this.dot[i][0][1])        
-                this.context.quadraticCurveTo(this.dot[i][1][0], this.dot[i][1][1], this.dot[i][2][0], this.dot[i][2][1])
+                this.context.moveTo(this.output[1][i][0][0], this.output[1][i][0][1])        
+                this.context.quadraticCurveTo(this.output[1][i][1][0], this.output[1][i][1][1], this.output[1][i][2][0], this.output[1][i][2][1])
                 this.context.stroke();
                 this.context.fill();
             }
