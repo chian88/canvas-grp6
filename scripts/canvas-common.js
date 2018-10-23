@@ -3,6 +3,7 @@ let contextReal = canvasReal.getContext('2d');
 let canvasDraft = document.getElementById('canvas-draft');
 let contextDraft = canvasDraft.getContext('2d');
 let currentFunction;
+let filter;
 let dragging = false;
 let doneList = []
 let redoList = []
@@ -55,6 +56,8 @@ function undo(){
     }
 }
 
+
+
 function redo(){
     if (redoList.length > 0){
         contextReal.clearRect(0,0,canvasReal.width,canvasReal.height);
@@ -99,7 +102,6 @@ class MoveImage {
 
 class PaintFunction {
      // simply provide a basic structure to the programmers as reference only 
-     //no literal function to the code actually
      constructor(){}  
 
     lineWeight(width){
@@ -117,6 +119,13 @@ class PaintFunction {
         this.contextDraft.strokeStyle = color;
     }
 
+    transparency(value){ //change strokeStyle and fillStyle from 0.0 (fully transparent) to 1.0 (fully opaque) 
+         this.contextReal.globalAlpha = value;
+         this.contextDraft.globalAlpha = value;
+    }
+
+
+
  
     onMouseDown(){}
     onDragging(){}
@@ -125,4 +134,7 @@ class PaintFunction {
     onMouseLeave(){}
     onMouseEnter(){}
 }  
+
+
+
 

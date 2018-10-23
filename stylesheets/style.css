@@ -94,9 +94,26 @@
 
 
 /* canvas */
+.canvas-container{
+	position: relative;
+	width: 832.5px;
+	height: 460px;
+	padding: 0;
+	overflow: hidden;
+}
 
-#canvas {
+.canvas-container > canvas{
+	position: absolute;
+	top:0;
+	left: 0;
+}
+
+.canvas-container #canvas-real {
 	background-color: #ccc;
+}
+.canvas-container #canvas-draft{
+	background-color: transparent;
+
 }
 
 

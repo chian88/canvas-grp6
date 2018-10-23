@@ -1,4 +1,5 @@
 $(function() {
+
 	$("#circle").on("click", function(e) {
 		$("#topbar").children().hide();
 		$("#topbar #thickness").show();
