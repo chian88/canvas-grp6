@@ -108,9 +108,6 @@ class Rectangle extends mouseAction{
             }
         }
     }
-    render(){
-        this.display();
-    }
 }
 
 class Ellipse extends mouseAction{
@@ -150,8 +147,5 @@ class Ellipse extends mouseAction{
                 this.endX = this.centerX + Math.abs(this.lengthY);
             }
         }
-    }
-    render(){
-        this.display();
     }
 }

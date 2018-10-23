@@ -64,7 +64,7 @@
 class Curve extends mouseAction{
     constructor(){
         super();
-        this.type = 'cruve';
+        this.type = 'curve';
         this.twistPx;
         this.twistPy;
         this.dot = [];
@@ -107,15 +107,17 @@ class Curve extends mouseAction{
         this.context.moveTo(this.centerX, this.centerY)
         this.context.quadraticCurveTo(this.twistPx, this.twistPy, this.endX, this.endY)
     }
-    render(){
-        if (this.output[1] > 0) {
-            for(let i = 0 ; i < this.output[1]; i++){
-                this.context.beginPath();        
-                this.context.moveTo(this.output[1][i][0][0], this.output[1][i][0][1])        
-                this.context.quadraticCurveTo(this.output[1][i][1][0], this.output[1][i][1][1], this.output[1][i][2][0], this.output[1][i][2][1])
-                this.context.stroke();
-                this.context.fill();
-            }
-        }
-    }
+    // render(){
+    //     if (this.output[1] > 0) {
+    //         console.log(this.output);
+            
+    //         for(let i = 0 ; i < this.output[1]; i++){
+    //             this.context.beginPath();        
+    //             this.context.moveTo(this.output[1][i][0][0], this.output[1][i][0][1])        
+    //             this.context.quadraticCurveTo(this.output[1][i][1][0], this.output[1][i][1][1], this.output[1][i][2][0], this.output[1][i][2][1])
+    //             this.context.stroke();
+    //             this.context.fill();
+    //         }
+    //     }
+    // }
 }

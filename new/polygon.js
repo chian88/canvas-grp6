@@ -72,16 +72,16 @@ class Polygon extends mouseAction{
         this.context.lineTo(this.endX, this.endY);
         this.context.moveTo(this.endX, this.endY);
     }
-    render(){
-        this.context.beginPath();        
-        this.context.moveTo(this.dot[0][0], this.dot[0][1])        
-        if (this.dot.length > 1) {
-            for(let i = 1 ; i < this.dot.length; i++){
-                this.context.lineTo(this.dot[i][0], this.dot[i][1])
-            }
-        }
-        this.context.closePath();
-        this.context.stroke();
-        this.context.fill();
-    }
+    // render(){
+    //     this.context.beginPath();        
+    //     this.context.moveTo(this.dot[0][0], this.dot[0][1])        
+    //     if (this.dot.length > 1) {
+    //         for(let i = 1 ; i < this.dot.length; i++){
+    //             this.context.lineTo(this.dot[i][0], this.dot[i][1])
+    //         }
+    //     }
+    //     this.context.closePath();
+    //     this.context.stroke();
+    //     this.context.fill();
+    // }
 }
