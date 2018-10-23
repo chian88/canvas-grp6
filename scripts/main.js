@@ -33,6 +33,7 @@ $(function() {
 	$('.stroke >> div').on('click',function(){
 		let cls = $(this).attr('class').split(' ')[1];
 		currentFunction.strokeColor(cls);
+		console.log(cls)
 	})
 
 	$('.fill >> div').on('click',function(){

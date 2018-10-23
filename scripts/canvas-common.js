@@ -57,7 +57,6 @@ function undo(){
 }
 
 
-
 function redo(){
     if (redoList.length > 0){
         contextReal.clearRect(0,0,canvasReal.width,canvasReal.height);
