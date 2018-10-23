@@ -41,6 +41,11 @@ class Filter{
         this.output();
    }
 
+   sepia(value=1){
+       this.style['sepia'] = value;
+       this.output();
+   }
+
    origin(){
        this.style = {};
        this.output();
