@@ -6,12 +6,12 @@ class Filter{
     }
 
   
-   grayscale(value=1){
+   grayscale(value){
        this.style['grayscale'] = value;
        this.output();
    }
 
-   invert(value=1){
+   invert(value){
        this.style['invert'] = value;
        this.output();
    }
@@ -21,17 +21,17 @@ class Filter{
        this.output();
    }
 
-   saturate(value=3){
+   saturate(value){
        this.style['saturate'] = value;
        this.output();
    }
 
-   contrast(value=2){
+   contrast(value){
        this.style['contrast'] = value;
        this.output();
    }
 
-   hueRotate(value=90+'deg'){
+   hueRotate(value){
        this.style['hue-rotate'] = value;
        this.output();
    }
@@ -41,13 +41,16 @@ class Filter{
         this.output();
    }
 
-   sepia(value=1){
+   sepia(value){
        this.style['sepia'] = value;
        this.output();
    }
 
-   origin(){
-       this.style = {};
+   removeFilter(name){
+       if(name == 'hueRotate'){
+           name = 'hue-rotate';
+       }
+       delete this.style[name] ;
        this.output();
    }
    
@@ -57,7 +60,7 @@ class Filter{
        let values = Object.values(this.style);
        let styleArray = [];
        for(let i=0; i<names.length; i++){ // convert js object to array
-           if(values[i]){
+           if(values[i] || values[i] == 0){
             let str = `${names[i]}(${values[i]})`;
             styleArray.push(str)
            }

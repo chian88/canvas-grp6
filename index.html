@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 
     <!-- effects -->
-    <link rel="stylesheet" type="text/css" href="ui/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/jquery-ui.css">
     <!-- effects -->
 
     <title>Online Paint</title>
@@ -136,58 +136,51 @@
  					<div class="row no-gutters">
 	 					<div class="btn-group dropright">
 						  <button type="button" class="btn btn-secondary dropdown-toggle effects" data-toggle="dropdown">
-						    Slider
+						    Filter
 						  </button>
 						  <div class="dropdown-menu effects keep-open">
 						    <div id="mother-slider">
 						    	<div class="effect_container">
 								    	<input type="checkbox" name="grayscale" id="grayscale">
 								    	<label for="grayscale">Grayscale</label>						    		
-							    		<div id="grayscale-slider"></div>						    		
+							    		<div class="100-percent" id="grayscale-slider"></div>						    		
 						    	</div>
 
 						    	<div class="effect_container">
 							    	<input type="checkbox" name="invert" id="invert">
-
 							    	<label for="invert">Invert</label>
-							    	<div id="invert-slider"></div>						    		
+							    	<div class="100-percent" id="invert-slider"></div>						    		
 						    	</div>
 
 						    	<div class="effect_container">
 							    	<input type="checkbox" name="brightness" id="brightness">
-
 							    	<label for="brightness">Brightness</label>
 							    	<div id="brightness-slider"></div>						    		
 						    	</div>
 						    	<div class="effect_container">
 							    	<input type="checkbox" name="saturate" id="saturate">
-
 							    	<label for="saturate">Saturate</label>
-							    	<div id="saturate-slider"></div>						    		
+							    	<div class="500-percent" id="saturate-slider"></div>						    		
 						    	</div>
 						    	<div class="effect_container">
 							    	<input type="checkbox" name="contrast" id="contrast">
-
 							    	<label for="contrast">Contrast</label>
-							    	<div id="contrast-slider"></div>						    		
+							    	<div class="500-percent" id="contrast-slider"></div>						    		
 						    	</div>
 						    	<div class="effect_container">
 							    	<input type="checkbox" name="hueRotate" id="hueRotate">
-
 							    	<label for="hueRotate">Hue Rotate</label>
 							    	<div id="hueRotate-slider"></div>						    		
 						    	</div>
 						    	<div class="effect_container">
 							    	<input type="checkbox" name="blur" id="blur">
-
 							    	<label for="blur">Blur</label>
 							    	<div id="blur-slider"></div>						    		
 						    	</div>
 						    	<div class="effect_container">
 							    	<input type="checkbox" name="sepia" id="sepia">
-
 							    	<label for="sepia">Sepia</label>
-							    	<div id="sepia-slider"></div>						    		
+							    	<div class="100-percent" id="sepia-slider"></div>						    		
 						    	</div>
 
 						    </div>
@@ -246,9 +239,6 @@
 						<canvas id="canvas-real" width="832.5" height="460" ></canvas>
 						<canvas id="canvas-draft" width="832.5" height="460"></canvas>
 					</div>
-					
-
-
  				</div>
  			</div>
  		</div>

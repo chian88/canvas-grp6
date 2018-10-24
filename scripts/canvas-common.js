@@ -124,11 +124,6 @@ class PaintFunction {
         this.contextDraft.strokeStyle = color;
     }
 
-    transparency(value){ //change strokeStyle and fillStyle from 0.0 (fully transparent) to 1.0 (fully opaque) 
-         this.contextReal.globalAlpha = value;
-         this.contextDraft.globalAlpha = value;
-    }
-
 
 
  
