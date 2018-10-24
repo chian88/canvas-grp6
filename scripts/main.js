@@ -1,3 +1,5 @@
+var current;  /// because need to have a bigger context.
+
 $(function() {
 	$("#circle").on("click", function(e) {
 		$("#topbar").children().hide();
@@ -19,38 +21,71 @@ $(function() {
 	});
 
 	$("div#background").on("click", function(e) {
-		debugger;
 		var $event = $(e.target);
 		var color = extractColorFromEvent($event);
 
 		$("#canvasField").css("background-color", color);
-
 	});
+
+	// effects js
+
+	$(".effects").on("change", function(e) {
+		$(this).next().toggle();
+	});
+
+	$(".keep-open").on("click", function(e) {
+		e.stopPropagation();
+	});
+
+	$("#mother-slider").on("click", ".effect_container", function(e) {
+		$input = $(e.currentTarget).find("input");
+		if ($input.prop("checked")) {
+			$input.siblings("div").show();
+		} else {
+			$input.siblings("div").hide();
+		}
+	})
+
+	$("#mother-slider div[id$=slider]").slider({
+		min: 0,
+		max: 100,
+		change: function(event, ui) {
+			console.log($(event.target).prop('id'));
+			console.log(ui.value);
+		}		
+	})
+
+
+
+	// effects js - end
+
+
 
 	
 	
 	function extractColorFromEvent($event) {
 		return $event.attr('style').split(":")[1].trim().replace(";", '');
 	}
+	current = new Curve();
 	
-	let curent;
 	$('#clear').on('click', ()=>{
 		clean();
 	})
 	$('#line').on('click', ()=>{
 		console.log('line');
+		debugger;
 		current = new Curve();
 	})
 	$('#circle').on('click', ()=>{
 		console.log('circle');
 		current = new Ellipse();
 	})
-	$('#polygon').on('click', ()=>{
-		console.log('polygon');
-		current = new Polygon();
-	})
-	$('#font').on('click', ()=>{
-		console.log('text');
-		current = new Text();
-	})
+	// $('#polygon').on('click', ()=>{
+	// 	console.log('polygon');
+	// 	current = new Polygon();
+	// })
+	// $('#font').on('click', ()=>{
+	// 	console.log('text');
+	// 	current = new Text();
+	// })
 })
