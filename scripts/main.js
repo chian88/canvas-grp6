@@ -23,6 +23,7 @@ $(function() {
 		var bgcolor = extractColorFromEvent($event);
 
 		$("#canvasReal").css("background-color", bgcolor);
+<<<<<<< HEAD
 
 	});
 
@@ -41,6 +42,9 @@ $(function() {
 	})  
 
 
+=======
+	})
+>>>>>>> d791162bac34c23128240d77a47b9ec4669b8985
 	// effects js
 
 	$(".effects").on("change", function(e) {
@@ -109,5 +113,10 @@ $(function() {
 	$('#eraser').on('click', ()=>{
 		console.log('eraser');
 		current = new Brush();
+<<<<<<< HEAD
 	})
 })
+=======
+	});
+});
+>>>>>>> d791162bac34c23128240d77a47b9ec4669b8985
