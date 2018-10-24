@@ -117,3 +117,12 @@
 }
 
 
+/* slider css */
+
+div.effects {
+	padding: 15px;
+}
+
+#mother-slider div div {
+	display: none;
+}

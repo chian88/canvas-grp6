@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paint</title>
+    <style>
+        body{
+            margin: 0;padding: 0;
+        }
+        canvas{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid black
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvasField" width="700" height="700"></canvas>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="./common.js"></script>
+  <!-- <script src="./shape.js"></script> -->
+<script src="./polygon.js"></script>
+<!-- <script src="./brush.js"></script> -->
+<!-- <script src="./text.js"></script> -->
+<!-- <script src="./curve.js"></script> -->
+<script>
+    document.getElementById('canvasField').addEventListener('contextmenu', event => event.preventDefault());
+    let history = [];
+    // new Rectangle()
+    new Polygon()
+    // new Ellipse();
+    // new Brush();
+    // new Text();
+    // new Curve(); 
+    history.map(data =>{data.render()})
+</script>
+</html>

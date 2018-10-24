@@ -28,3 +28,4 @@ extra features
 Size up size down touch
 Mobile support - touch event
 Exporting drawings to PNG and SVG
+ and You
