@@ -13,7 +13,7 @@ class Polygon{
         this.centerX = mouseX;
         this.centerY = mouseY;
         this.dot.push([this.centerX, this.centerY])
-        this.context.moveTo(this.centerX, this.mouseY);
+        this.context.moveTo(this.centerX, this.centerY);
     }
     commit(){
         dragging = false;
