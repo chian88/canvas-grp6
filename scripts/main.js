@@ -25,7 +25,7 @@ $(function() {
 		var bgcolor = extractColorFromEvent($event);
 
 		$("#canvasReal").css("background-color", bgcolor);
-
+	})
 	// effects js
 
 	$(".effects").on("change", function(e) {
