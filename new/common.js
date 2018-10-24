@@ -13,6 +13,7 @@ function render(data){
             context.stroke();
             context.fill();
         }else if(data[0] == 'ellipse'){
+            debugger;
             context.beginPath();
             context.ellipse(data[1], data[2], Math.abs(data[3] - data[1]) , Math.abs(data[4] - data[2]), 0 , 0 , 2*Math.PI)
             context.stroke();
