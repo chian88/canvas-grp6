@@ -3,22 +3,28 @@ class PaintFunction {
      constructor(){}  
 
     lineWeight(width){
-        this.contextReal.lineWidth = width;
-        this.contextDraft.lineWidth = width;
+        this.context.lineWidth = width;
+        // this.contextDraft.lineWidth = width;
     }
 
     fillColor(color){
-        this.contextReal.fillStyle = color;
-        this.contextDraft.fillStyle = color;
+        console.log('working');
+        
+        this.context.fillStyle = color;
+        // this.contextDraft.fillStyle = color;
     }
 
     strokeColor(color){
-        this.contextReal.strokeStyle = color;
-        this.contextDraft.strokeStyle = color;
+        console.log('working');
+        
+        this.context.strokeStyle = color;
+        // this.contextDraft.strokeStyle = color;
     }
 
     transparency(value){ //change strokeStyle and fillStyle from 0.0 (fully transparent) to 1.0 (fully opaque) 
-         this.contextReal.globalAlpha = value;
-         this.contextDraft.globalAlpha = value;
+        console.log('working');
+        
+         this.context.globalAlpha = value;
+        //  this.contextDraft.globalAlpha = value;
     }
 }
