@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 
+    <!-- effects -->
+    <link rel="stylesheet" type="text/css" href="ui/jquery-ui.css">
+    <!-- effects -->
+
     <title>Online Paint</title>
   </head>
   <body>
@@ -127,6 +131,72 @@
 						</div>
  					</div>
 
+ 					<!-- this is the effects slider -->
+
+ 					<div class="row no-gutters">
+	 					<div class="btn-group dropright">
+						  <button type="button" class="btn btn-secondary dropdown-toggle effects" data-toggle="dropdown">
+						    Slider
+						  </button>
+						  <div class="dropdown-menu effects keep-open">
+						    <div id="mother-slider">
+						    	<div class="effect_container">
+								    	<input type="checkbox" name="grayscale" id="grayscale">
+								    	<label for="grayscale">Grayscale</label>						    		
+							    		<div id="grayscale-slider"></div>						    		
+						    	</div>
+
+						    	<div class="effect_container">
+							    	<input type="checkbox" name="invert" id="invert">
+
+							    	<label for="invert">Invert</label>
+							    	<div id="invert-slider"></div>						    		
+						    	</div>
+
+						    	<div class="effect_container">
+							    	<input type="checkbox" name="brightness" id="brightness">
+
+							    	<label for="brightness">Brightness</label>
+							    	<div id="brightness-slider"></div>						    		
+						    	</div>
+						    	<div class="effect_container">
+							    	<input type="checkbox" name="saturate" id="saturate">
+
+							    	<label for="saturate">Saturate</label>
+							    	<div id="saturate-slider"></div>						    		
+						    	</div>
+						    	<div class="effect_container">
+							    	<input type="checkbox" name="contrast" id="contrast">
+
+							    	<label for="contrast">Contrast</label>
+							    	<div id="contrast-slider"></div>						    		
+						    	</div>
+						    	<div class="effect_container">
+							    	<input type="checkbox" name="hueRotate" id="hueRotate">
+
+							    	<label for="hueRotate">Hue Rotate</label>
+							    	<div id="hueRotate-slider"></div>						    		
+						    	</div>
+						    	<div class="effect_container">
+							    	<input type="checkbox" name="blur" id="blur">
+
+							    	<label for="blur">Blur</label>
+							    	<div id="blur-slider"></div>						    		
+						    	</div>
+						    	<div class="effect_container">
+							    	<input type="checkbox" name="sepia" id="sepia">
+
+							    	<label for="sepia">Sepia</label>
+							    	<div id="sepia-slider"></div>						    		
+						    	</div>
+
+						    </div>
+						  </div>
+						</div>
+ 					</div>
+
+ 					<!-- end -->
+
  					<hr>
 
  					<div class="row no-gutters">
@@ -185,7 +255,10 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="scripts/main.js"></script>

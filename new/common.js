@@ -56,6 +56,7 @@ function render(data){
             context.fill();
         }
     }
+<<<<<<< HEAD
 }
 let dragging;
 let forging;
@@ -84,6 +85,76 @@ $('#canvasDraft').mousemove(e =>{
         }
         if(forging){
             current.forge(mouseX, mouseY);
+=======
+
+ $('#canvasField').mousedown(e =>{
+    let mouseX = e.offsetX;
+    let mouseY = e.offsetY;
+    current.onMouseDown([mouseX, mouseY], e);
+});
+
+ $('#canvasField').mousemove(e =>{
+    let mouseX = e.offsetX;
+    let mouseY = e.offsetY;
+    current.onMouseMove([mouseX, mouseY], e)
+
+})
+
+
+class mouseAction{
+    constructor(){
+        this.dragging = false;
+        this.context = context;
+        this.centerX;
+        this.centerY;
+        this.endX;
+        this.endY;
+        this.forging = false;
+        this.outside();
+    }
+    onMouseDown(coordinate, e){
+
+        if(e.button == 0){
+            this.centerX = e.offsetX;
+            this.centerY = e.offsetY;
+            if (this.type == 'polygon') {
+                this.dot.push([this.centerX, this.centerY])
+            }
+            this.context.moveTo(this.centerX, this.mouseY);
+        }
+        if (e.button == 2) {
+            this.dragging = false;
+            if(this.type == 'polygon' || this.type == 'curve'){
+                this.dot.push([this.endX, this.endY])
+            }
+            // clean();
+            console.log('finish');
+            
+            if(this.type == 'rect' || this.type == 'ellipse'){
+                debugger;
+                history.push([this.type, this.centerX, this.centerY, this.endX, this.endY])
+            }else if(this.type == 'text'){
+                debugger;
+                history.push([this.type, this.text, this.centerX, this.centerY])
+            }else if(this.type == 'curve' || this.type == 'polygon'){ 
+                debugger;
+                history.push([this.type, this.dot])
+            }
+            history.map(data => render(data))
+            // push object to result
+            this.dot =[];
+        }else{
+            this.dragging = true;
+        }       
+           
+    }
+    onMouseMove(coordinate, e){
+        if (this.dragging) {
+            this.twistPx = this.endX = e.offsetX;
+            this.twistPy = this.endY = e.offsetY;
+            clean();
+            this.display();
+>>>>>>> 6ae46bad8d405c560b0c15a09efe893bf28caf8f
         }
     }
 })
