@@ -33,7 +33,7 @@ $(function() {
 		return $event.attr('style').split(":")[1].trim().replace(";", '');
 	}
 	
-	let curent;
+	
 	$('#clear').on('click', ()=>{
 		clean();
 	})
@@ -51,6 +51,6 @@ $(function() {
 	})
 	$('#font').on('click', ()=>{
 		console.log('text');
-		current = new Text();
+		current = new Text(16);
 	})
 })
