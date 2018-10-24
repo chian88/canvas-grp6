@@ -3,7 +3,6 @@ let context = canvas.getContext('2d');
 let cw = canvas.width;
 let ch = canvas.height;
 let history = [];
-// history.map(data => render(data))
 function clean() {
     context.clearRect(0,0,cw,ch);
 }
@@ -20,7 +19,7 @@ function render(data){
             context.fill();
         }else if(data[0] == 'text'){
             context.fillText(data[1] ,data[2] ,data[3]);
-            context.font(`${data[4]}px Arial`)
+            // context.font(`${data[4]}px Arial`)
         }else if(data[0] == 'curve'){
             let dot = data[1]
             for(let i = 0 ; i < dot.length; i++){
@@ -64,14 +63,12 @@ function render(data){
     })
     $('#canvasField').mousemove(e =>{
         if (current.type != 'text') {
+            let mouseX = e.offsetX;
+            let mouseY = e.offsetY;
             if (dragging) {
-                let mouseX = e.offsetX;
-                let mouseY = e.offsetY;
                 current.drag(mouseX, mouseY);
             }
             if(forging){
-                let mouseX = e.offsetX;
-                let mouseY = e.offsetY;
                 current.forge(mouseX, mouseY);
             }
         }
@@ -80,18 +77,18 @@ function render(data){
         dragging = false;
     })
     $('body').keydown(e =>{
-        if (current.type != 'text') {
-            if(e.which == 17 || e.keycode ==17){
-                forging = true;
+        if(e.which == 17 || e.keycode ==17 || e.which == 13 || e.keycoe ==13){
+            forging = true;
+            if (current.type == 'rect' || current.type == 'ellipse') {
+                dragging = true;
+            }else{
                 dragging = false;
-                current.keyPress();
             }
+            current.keyPress();
         }
     })
     $("body").keyup(e =>{
-        if (current.type != 'text') {
-            forging = false;
-            dragging = true;
-            current.keyRelease();
-        }
+        forging = false;
+        dragging = true;
+        current.keyRelease();
     })

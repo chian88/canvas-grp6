@@ -44,6 +44,7 @@ class Curve{
     }
     keyPress(){
         clean()
+        history.map(data => render(data))
         this.draft();
         this.display();
     }

@@ -16,15 +16,16 @@ class Text{
         $('body').append(`<input type='text' name='txt'></input>`)
         // fontsize Y position
         $('input[name="txt"]').css({'position':'absolute', 'top':`${e.clientY - this.size}px`, 'left':`${e.clientX}px`})
-        $('input[name="txt"]').keyup(e=>{
-            if (e.which == 13 || e.keycode == 13) {
-                this.text = e.currentTarget.value
-                $('input').remove();
-                this.display();
-                history.push([this.type, this.text, this.centerX, this.centerY, this.size])
-            }
-        })
     } 
+    keyPress(){
+        this.text = $('input[name="txt"]')[0].value
+        $('input').remove();
+        this.display();
+        history.push([this.type, this.text, this.centerX, this.centerY, this.size])
+    }
+    keyRelease(){
+       
+    }
     display(){
         this.context.beginPath();
         this.context.fillText(this.text ,this.centerX ,this.centerY);
