@@ -1,4 +1,4 @@
-var current;  /// because need to have a bigger context.
+// var current;  /// because need to have a bigger context.
 
 $(function() {
 	$("#circle").on("click", function(e) {
