@@ -42,3 +42,6 @@ special action
 
     Under "Ellipse / Rectangle"
     "holding" make "Square / Circle"
+
+
+    new
