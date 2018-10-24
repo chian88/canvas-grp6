@@ -16,7 +16,7 @@ class Filter{
        this.output();
    }
 
-   brightness(value=1.2){
+   brightness(value){
        this.style['brightness'] = value;
        this.output();
    }

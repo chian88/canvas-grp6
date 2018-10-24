@@ -121,14 +121,21 @@ $(function() {
 				case 'grayscale-slider':
 					filter.grayscale(percent);
 					break;
-				case 'invert-slider':
-					filter.invert(percent);
-					break;
 				case 'sepia-slider':
 					filter.sepia(percent);
 					break;
 			}
 		}		
+	})
+
+	$("#mother-slider #invert-slider").slider({
+		min: 50,
+		max: 100,
+		value: 100,
+		slide: function(event, ui) {
+			let percent = ui.value/100;
+			filter.invert(percent);
+			}
 	})
 
 	$("#mother-slider #brightness-slider").slider({
