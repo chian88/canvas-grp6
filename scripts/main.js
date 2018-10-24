@@ -23,7 +23,7 @@ $(function() {
 		var $event = $(e.target);
 		var bgcolor = extractColorFromEvent($event);
 
-		$("#canvasField").css("background-color", bgcolor);
+		$("#canvasReal").css("background-color", bgcolor);
 
 	});
 
@@ -36,6 +36,7 @@ $(function() {
 	
 	$('#clear').on('click', ()=>{
 		history.push([]);
+		history.map(data =>{render(data)})
 	})
 	$('#line').on('click', ()=>{
 		console.log('line');

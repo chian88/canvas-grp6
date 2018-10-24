@@ -173,8 +173,9 @@
 	 					</div> 						
  					</div>
 
- 					<div class="row no-gutters">
- 						<canvas  id="canvasField" width="832.5" height="460"></canvas>
+ 					<div class="row no-gutters" id="canvasRect">
+						 <canvas  id="canvasReal" width="832.5" height="460"></canvas>
+						 <canvas  id="canvasDraft" width="832.5" height="460"></canvas>
  					</div>
 
  				</div>
@@ -188,14 +189,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="scripts/main.js"></script>
-		<script src="./new/common.js"></script>
-		<script src="./new/curve.js"></script>
-		<script src="./new/polygon.js"></script>
-		<script src="./new/shape.js"></script>
-		<script src="./new/text.js"></script>
-		<script src="./new/brush.js"></script>
+		<script src="./scripts/common.js"></script>
+		<script src="./scripts/commonPaint.js"></script>
+		<script src="./scripts/curve.js"></script>
+		<script src="./scripts/polygon.js"></script>
+		<script src="./scripts/shape.js"></script>
+		<script src="./scripts/text.js"></script>
+		<script src="./scripts/brush.js"></script>
 		<script>
-			document.getElementById('canvasField').addEventListener('contextmenu', event => event.preventDefault());
+			document.getElementById('canvasReal').addEventListener('contextmenu', event => event.preventDefault());
+			document.getElementById('canvasDraft').addEventListener('contextmenu', event => event.preventDefault());
 			// context.beginPath();
 			// context.moveTo(20,20);
 			// context.lineTo(20,100);

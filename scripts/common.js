@@ -36,7 +36,6 @@ function render(data){
             context.quadraticCurveTo(data.dot[i][1][0], data.dot[i][1][1], data.dot[i][2][0], data.dot[i][2][1])
             context.stroke();
             context.fill();
-
         }
     }else if(data.type == 'polygon'){
         context.beginPath();        
@@ -78,7 +77,6 @@ $('#canvasDraft').mousedown(e =>{
 })
 $('#canvasDraft').mousemove(e =>{
     if (current.type != 'text') {
-
         let mouseX = e.offsetX;
         let mouseY = e.offsetY;
         if (dragging) {
