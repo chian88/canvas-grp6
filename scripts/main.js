@@ -1,5 +1,3 @@
-var current;  /// because need to have a bigger context.
-
 $(function() {
 	$("#circle").on("click", function(e) {
 		$("#topbar").children().hide();
@@ -53,7 +51,7 @@ $(function() {
 			console.log($(event.target).prop('id'));
 			console.log(ui.value);
 		}		
-	})
+	});
 
 
 
@@ -63,16 +61,15 @@ $(function() {
 	function extractColorFromEvent($event) {
 		return $event.attr('style').split(":")[1].trim().replace(";", '');
 	}
-	current = new Curve();
-	
+
 	
 	$('#clear').on('click', ()=>{
+		debugger;
 		history.push([]);
 		history.map(data =>{render(data)})
 	});
 	$('#line').on('click', ()=>{
 		console.log('line');
-		debugger;
 		current = new Curve();
 	});
 	$('#circle').on('click', ()=>{
@@ -89,6 +86,7 @@ $(function() {
 	});
 	$('#rectangle').on('click', ()=>{
 		console.log('rectangle');
+		debugger;
 		current = new Rectangle()
 	});
 	$('#pen').on('click', ()=>{
