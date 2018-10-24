@@ -21,9 +21,9 @@ $(function() {
 	$("div#background").on("click", function(e) {
 		debugger;
 		var $event = $(e.target);
-		var color = extractColorFromEvent($event);
+		var bgcolor = extractColorFromEvent($event);
 
-		$("#canvasField").css("background-color", color);
+		$("#canvasField").css("background-color", bgcolor);
 
 	});
 
@@ -35,7 +35,7 @@ $(function() {
 	
 	
 	$('#clear').on('click', ()=>{
-		clean();
+		history.push([]);
 	})
 	$('#line').on('click', ()=>{
 		console.log('line');
@@ -52,5 +52,17 @@ $(function() {
 	$('#font').on('click', ()=>{
 		console.log('text');
 		current = new Text(16);
+	})
+	$('#rectangle').on('click', ()=>{
+		console.log('rectangle');
+		current = new Rectangle()
+	})
+	$('#pen').on('click', ()=>{
+		console.log('brush');
+		current = new Brush();
+	})
+	$('#eraser').on('click', ()=>{
+		console.log('eraser');
+		current = new Brush();
 	})
 })

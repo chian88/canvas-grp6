@@ -22,7 +22,6 @@ class Rectangle {
             this.endY = mouseY;
             clean();
             history.map(data => render(data))
-            this.draft()
             this.display();
         }
     }

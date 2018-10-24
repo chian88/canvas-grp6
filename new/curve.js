@@ -30,8 +30,8 @@ class Curve{
             this.twistPx = this.endX = mouseX;
             this.twistPy = this.endY = mouseY;
             clean();
-            this.draft();
             history.map(data => render(data))
+            this.draft();
             this.display();
         }
     }
@@ -39,6 +39,7 @@ class Curve{
         this.context.beginPath();
         this.context.moveTo(this.centerX, this.centerY)
         this.context.quadraticCurveTo(this.twistPx, this.twistPy, this.endX, this.endY)
+        this.context.moveTo(this.endX, this.endY);
         this.context.stroke();
         this.context.fill();
     }
@@ -66,7 +67,7 @@ class Curve{
     draft(){
         for(let i = 0 ; i < this.dot.length; i++){
             context.beginPath();        
-            context.moveTo(this.dot[i][0][0], this.dot[i][0][1])        
+            context.moveTo(this.dot[i][0][0], this.dot[i][0][1])
             context.quadraticCurveTo(this.dot[i][1][0], this.dot[i][1][1], this.dot[i][2][0], this.dot[i][2][1])
             context.stroke();
             context.fill();

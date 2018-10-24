@@ -28,4 +28,17 @@ extra features
 Size up size down touch
 Mobile support - touch event
 Exporting drawings to PNG and SVG
- and You
+
+MouseAction 
+global action
+- "left click" to start
+- "right click" to commit
+
+special action 
+-  "ctrl"
+    Under "Line"
+    "press" make new point
+    "holding" make curve
+
+    Under "Ellipse / Rectangle"
+    "holding" make "Square / Circle"
