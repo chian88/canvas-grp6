@@ -178,19 +178,6 @@ $(function() {
 			filter.blur(pixel);
 			}
 	})
-
-
-
-
-
-
-
-
-	// effects js - end
-
-
-
-	
 	
 	function extractColorFromEvent($event) {
 		return $event.attr('style').split(":")[1].trim().replace(";", '');

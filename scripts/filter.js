@@ -68,3 +68,4 @@ class Filter{
         this.contextReal.canvas.style.filter = this.contextDraft.canvas.style.filter = styleArray.join(' ');
     }
 }
+
