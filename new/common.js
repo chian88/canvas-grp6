@@ -36,6 +36,7 @@ function render(data){
             context.quadraticCurveTo(data.dot[i][1][0], data.dot[i][1][1], data.dot[i][2][0], data.dot[i][2][1])
             context.stroke();
             context.fill();
+
         }
     }else if(data.type == 'polygon'){
         context.beginPath();        
@@ -57,6 +58,9 @@ function render(data){
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4aa9fea2da7d444a7cc7d4c1e36234687d6ca835
 }
 let dragging;
 let forging;
@@ -78,6 +82,10 @@ $('#canvasDraft').mousedown(e =>{
 })
 $('#canvasDraft').mousemove(e =>{
     if (current.type != 'text') {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4aa9fea2da7d444a7cc7d4c1e36234687d6ca835
         let mouseX = e.offsetX;
         let mouseY = e.offsetY;
         if (dragging) {
@@ -85,6 +93,7 @@ $('#canvasDraft').mousemove(e =>{
         }
         if(forging){
             current.forge(mouseX, mouseY);
+<<<<<<< HEAD
 =======
 
  $('#canvasField').mousedown(e =>{
@@ -155,6 +164,8 @@ class mouseAction{
             clean();
             this.display();
 >>>>>>> 6ae46bad8d405c560b0c15a09efe893bf28caf8f
+=======
+>>>>>>> 4aa9fea2da7d444a7cc7d4c1e36234687d6ca835
         }
     }
 })

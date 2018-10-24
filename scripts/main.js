@@ -58,9 +58,6 @@ $(function() {
 
 	// effects js - end
 
-
-
-	
 	
 	function extractColorFromEvent($event) {
 		return $event.attr('style').split(":")[1].trim().replace(";", '');
@@ -71,34 +68,34 @@ $(function() {
 	$('#clear').on('click', ()=>{
 		history.push([]);
 		history.map(data =>{render(data)})
-	})
+	});
 	$('#line').on('click', ()=>{
 		console.log('line');
 		debugger;
 		current = new Curve();
-	})
+	});
 	$('#circle').on('click', ()=>{
 		console.log('circle');
 		current = new Ellipse();
-	})
+	});
 	$('#polygon').on('click', ()=>{
 		console.log('polygon');
 		current = new Polygon();
-	})
+	});
 	$('#font').on('click', ()=>{
 		console.log('text');
 		current = new Text(16);
-	})
+	});
 	$('#rectangle').on('click', ()=>{
 		console.log('rectangle');
 		current = new Rectangle()
-	})
+	});
 	$('#pen').on('click', ()=>{
 		console.log('brush');
 		current = new Brush();
-	})
+	});
 	$('#eraser').on('click', ()=>{
 		console.log('eraser');
 		current = new Brush();
-	})
-})
+	});
+});
