@@ -236,5 +236,10 @@ $(function() {
 	$('#eraser').on('click', ()=>{
 		console.log('eraser');
 		current = new Brush();
+<<<<<<< HEAD
 	});
 });
+=======
+	})
+})
+>>>>>>> 863baf52e9fa43cad27c2c83d9c2d9f7946fea2f
