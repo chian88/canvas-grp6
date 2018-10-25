@@ -94,6 +94,19 @@
 
 
 /* canvas */
+.canvas-container{
+	position: relative;
+	width: 832.5px;
+	height: 460px;
+	padding: 0;
+	overflow: hidden;
+}
+
+.canvas-container > canvas{
+	position: absolute;
+	top:0;
+	left: 0;
+}
 
 #canvasReal, #canvasDraft {
 	background-color: #ccc;
@@ -107,7 +120,10 @@
 #canvasRect{
 	position: relative;
 }
+.canvas-container #canvas-draft{
+	background-color: transparent;
 
+}
 
 /* slider css */
 
