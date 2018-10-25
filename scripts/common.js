@@ -90,6 +90,9 @@ $('#canvasDraft').mousemove(e =>{
 $('#canvasDraft').mouseleave(() =>{
     dragging = false;
 })
+$('#canvasDraft').mouseup(() =>{
+    
+})
 $('body').keydown(e =>{
     if(e.which == 17 || e.keycode ==17 || e.which == 13 || e.keycoe ==13){
         forging = true;
