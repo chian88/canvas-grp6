@@ -92,6 +92,9 @@
 	height: 40px;
 }
 
+.active-thickness {
+    background: lightblue;
+}
 
 /* canvas */
 .canvas-container{

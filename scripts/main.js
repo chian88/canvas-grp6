@@ -1,5 +1,35 @@
 $(function() {
+	// topbar
+	$("#pen").on("click", function(e) {
+        $("#topbar").children().hide();
+        $("#topbar #thickness").show();
+    });
 
+    $("#eraser").on("click", function(e) {
+        $("#topbar").children().hide();
+        $("#topbar #thickness").show();
+    });
+
+    $("#line").on("click", function(e) {
+        $("#topbar").children().hide();
+        $("#topbar #thickness").show();
+    });
+    $("#rectangle").on("click", function(e) {
+        $("#topbar").children().hide();
+        $("#topbar #thickness").show();
+    });
+
+    $("#circle").on("click", function(e) {
+        $("#topbar").children().hide();
+        $("#topbar #thickness").show();
+    });
+
+    $("#polygon").on("click", function(e) {
+        $("#topbar").children().hide();
+        $("#topbar #thickness").show();
+    });
+
+	// toolbar
 	$("#circle").on("click", function(e) {
 		$("#topbar").children().hide();
 		$("#topbar #thickness").show();
@@ -40,24 +70,34 @@ $(function() {
 		current.fillColor(cls);
 	})  
 
+	// thickness
+	$('#thickness').on("click", "i", function(e) {
+        let width = $(this).attr("data-value");
+        width = parseInt(width, 10);
+		current.lineWeight(width);
+		$parent = $(this).closest("div");
+        $parent.find("i").removeClass("active-thickness");
+        $(this).addClass("active-thickness");
+	});
 
+	//font size
+	$('#font-option').on("change", function(e) {
+        let italicState = $(e.currentTarget).find("#italic").prop("checked");
+        italicState = italicState ? 'italic' : '';
+        let boldState = $(e.currentTarget).find("#bold").prop("checked");
+        boldState = boldState ? 'bold' : '';
+        let fontSizeState = $(e.currentTarget).find("#font-size").val();
+        fontSizeState = Number(fontSizeState);
+        debugger;
+        current.fontSize(boldState, italicState, fontSizeState);
+        
+    });
+	
 	// effects js
 
 	$(".effects").on("change", function(e) {
 		$(this).next().toggle();
 	});
-
-	//color panel
-
-	$('.stroke >> div').on('click',function(){
-		let cls = $(this).attr('class').split(' ')[1];
-		currentFunction.strokeColor(cls);
-	})
-
-	$('.fill >> div').on('click',function(){
-		let cls = $(this).attr('class').split(' ')[1];
-		currentFunction.fillColor(cls);
-	})
 
 	//undo redo
 

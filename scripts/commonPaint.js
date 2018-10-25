@@ -2,9 +2,6 @@ class PaintFunction {
      // simply provide a basic structure to the programmers as reference only 
      constructor(){
          this.context = context2;
-         this.width;
-         this.fillColor;
-         this.strokeColor;
          this.alpha;
          this.size;
          this.style = {};
@@ -15,22 +12,24 @@ class PaintFunction {
          this.fontSize();
      }
     lineWeight(width = 5){
-        this.context.lineWidth = this.style.width = this.width = width;
+        this.context.lineWidth = this.style.width = width;  
     }
 
     fillColor(color = 'red'){
-        this.context.fillStyle =  this.style.fill = this.fillColor = color;
+        this.context.fillStyle =  this.style.fill = color;
     }
 
     strokeColor(color = 'black'){
-        this.context.strokeStyle = this.style.stroke = this.strokeColor = color;
+        this.context.strokeStyle = this.style.stroke  = color;
     }
 
     transparency(value = 1){ //change strokeStyle and fillStyle from 0.0 (fully transparent) to 1.0 (fully opaque) 
         this.context.globalAlpha = this.alpha = value;
     }
-    fontSize(bold = "Bold", italic = "italic", size = 18 ){
+    fontSize(bold, italic, size){
         this.size = size;
+        this.style.bold = bold;
+        this.style.italic = italic;
         this.context.font = `${bold} ${italic} ${size}px Arial`
     }
 }
@@ -59,7 +58,7 @@ function render(data){
         case 'text':
             context.fillStyle = data.style.fill;
             context.strokeStyle = data.style.stroke;
-            context.font = `${data.size}px Arial`
+            context.font = `${data.style.bold} ${data.style.italic} ${data.size}px Arial`
             context.fillText(data.text ,data.center.x ,data.center.y);
             break;
 

@@ -206,11 +206,11 @@
  					<div class="row no-gutters" id="topbar">
 	 					<div id="thickness">
  							<div class="row no-gutters">
-	 							<i class="fas fa-circle fa-fw fa-sm"></i>
-	 							<i class="fas fa-circle fa-fw fa-lg"></i>
-	 							<i class="fas fa-circle fa-fw fa-2x"></i>
-	 							<i class="fas fa-circle fa-fw fa-3x"></i>
-	 							<i class="fas fa-circle fa-fw fa-4x"></i>
+	 							<i class="fas fa-circle fa-fw fa-sm" data-value="2" ></i>
+	 							<i class="fas fa-circle fa-fw fa-lg" data-value="6"></i>
+	 							<i class="fas fa-circle fa-fw fa-2x" data-value="12"></i>
+	 							<i class="fas fa-circle fa-fw fa-3x" data-value="24"></i>
+	 							<i class="fas fa-circle fa-fw fa-4x" data-value="32"></i>
  							</div>
 	 							
 	 					</div>
@@ -267,7 +267,7 @@
 		<script>
 			document.getElementById('canvasReal').addEventListener('contextmenu', event => event.preventDefault());
 			document.getElementById('canvasDraft').addEventListener('contextmenu', event => event.preventDefault());
-			let current;
+			let current = new Curve();
 			filter = new Filter(context,context2);
 		</script>
   </body>
