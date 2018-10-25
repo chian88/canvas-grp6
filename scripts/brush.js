@@ -31,7 +31,7 @@ class Brush extends PaintFunction {
         history.push({
             type: this.type,
             dot : this.dot,
-            width : this.width,
+            width : this.thick,
             style : cloneStyle
         });
         redoList = [];

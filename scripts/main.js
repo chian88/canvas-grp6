@@ -55,9 +55,10 @@ $(function() {
 	$("div#background").on("click", function(e) {
 		var $event = $(e.target);
 		var bgcolor = extractColorFromEvent($event);
-
 		$("#canvasReal").css("background-color", bgcolor);
-
+		clean();
+        cleanReal();
+        history.forEach(data => render(data));
 	});
 
 	// color panel

@@ -114,6 +114,15 @@ function render(data){
             break;
 
         case 'eraser' :
+        for(let i = 0 ; i < data.dot.length; i++){
+                context.beginPath();  
+                context.arc(data.dot[i][0], data.dot[i][1], data.width, 0, 2*Math.PI);
+                context.fillStyle = $('#canvasReal').css("background-color");
+                console.log(context.fillStyle);
+                
+                context.fill();
+            }
+            break;
         case 'brush':
             for(let i = 0 ; i < data.dot.length; i++){
                 context.beginPath();  
