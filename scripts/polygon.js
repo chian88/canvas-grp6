@@ -22,6 +22,7 @@ class Polygon extends PaintFunction {
         let cloneStyle = Object.assign({},this.style);
         history.push({type:this.type, dot:this.dot, style : cloneStyle})
         this.dot = [];
+        redoList = [];
     }
 
     drag(mouseX, mouseY){

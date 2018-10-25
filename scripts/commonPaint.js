@@ -41,6 +41,27 @@ function clean() {
 function cleanReal(){
     context.clearRect(0,0,cw,ch);
 }
+
+function undo(){
+    clean();
+    cleanReal();
+    if(history.length>0){
+        redoList.push(history.pop());
+        if(history.length>0){
+            history.forEach(data => render(data));
+        }
+    }
+}
+
+function redo(){
+    if(redoList.length >0){
+        clean();
+        cleanReal();
+        history.push(redoList.pop());
+        history.forEach(data => render(data));
+    } 
+}
+
 function render(data){
     context.beginPath();
     if(data.length === 0){
@@ -89,6 +110,9 @@ function render(data){
                 context.fill();
             }
             break; 
+
+        case 'clear':
+            break;
         }
         context.fillStyle = data.style.fill;
         context.strokeStyle = data.style.stroke;
@@ -99,3 +123,4 @@ function render(data){
         context.stroke();
         context.fill();
     }
+

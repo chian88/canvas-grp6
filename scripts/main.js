@@ -243,10 +243,6 @@ $(function() {
 	}
 	
 	
-	$('#clear').on('click', ()=>{
-		history.push([]);
-		history.map(data =>{render(data)})
-	})
 	$('#line').on('click', ()=>{
 		console.log('line');
 		current = new Curve();
@@ -274,5 +270,16 @@ $(function() {
 	$('#eraser').on('click', ()=>{
 		console.log('eraser');
 		current = new Eraser();
+	})
+
+	// undo redo clear 
+	$('undo').on('click', ()=> undo());
+
+	$('redo').on('click', ()=> redo());
+
+	$('#clear').on('click', ()=>{
+		clean();
+		cleanReal();
+		history.push({type: 'clear'})
 	})
 })

@@ -33,7 +33,8 @@ class Brush extends PaintFunction {
             dot : this.dot,
             width : this.width,
             style : cloneStyle
-        })
+        });
+        redoList = [];
     }
     draft(){
         this.context.beginPath();

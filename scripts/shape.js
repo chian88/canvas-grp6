@@ -17,6 +17,7 @@ class Rectangle extends PaintFunction {
         dragging = false;
         let cloneStyle = Object.assign({},this.style);
         history.push({type:this.type, center:{x:this.centerX, y:this.centerY}, end:{x:this.endX, y:this.endY},style : cloneStyle})
+        redoList = [];
     }
     drag(mouseX, mouseY){
         if (dragging) {
@@ -82,6 +83,7 @@ class Ellipse extends PaintFunction {
         dragging = false;
         let cloneStyle = Object.assign({},this.style);
         history.push({type:this.type, center:{x:this.centerX, y: this.centerY}, end:{x: this.endX, y: this.endY},style : cloneStyle})
+        redoList = [];
     }
     drag(mouseX, mouseY){
         if (dragging) {
