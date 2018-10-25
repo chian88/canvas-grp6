@@ -4,7 +4,21 @@ let canDraft = document.getElementById('canvasDraft');
 let context2 = canDraft.getContext('2d');
 let cw = canvas.width;
 let ch = canvas.height;
+
+// real canvas
 let history = [];
+
+//modifier selector
+function modifier(mX, mY){
+    history.map(data =>{
+        render(data)
+        if (context.isPointInPath(mX, mY)) {
+            let a = history.indexOf(data)
+            console.log(history[a]);
+        }
+    })
+}
+
 let dragging;
 let forging;
 $('#canvasDraft').mousedown(e =>{
@@ -12,16 +26,28 @@ $('#canvasDraft').mousedown(e =>{
         console.log('type is : '+current.type);
         let mouseX = e.offsetX;
         let mouseY = e.offsetY;
-        dragging = true;
         current.press(mouseX, mouseY, e)
+        //new
+        if (current.type == 'curve') {
+            dragging = false;
+            forging = true;
+        }//
+        dragging = true;
     }
     else if (e.button == 2) {
         console.log('finish');
-        current.commit()
+        current.commit();
         history.map(data => render(data))
     }else{
         dragging = false;
     }
+})
+$('#canvasDraft').mouseup(()=>{
+    //new
+        if (current.type == 'curve') {
+            dragging = true;
+            forging = false;
+        }//
 })
 $('#canvasDraft').mousemove(e =>{
     if (current.type != 'text') {
@@ -34,12 +60,10 @@ $('#canvasDraft').mousemove(e =>{
             current.forge(mouseX, mouseY);
         }
     }
+    // modifier(e.offsetX, e.offsetY)
 })
 $('#canvasDraft').mouseleave(() =>{
     dragging = false;
-})
-$('#canvasDraft').mouseup(() =>{
-    
 })
 $('body').keydown(e =>{
     if(e.which == 17 || e.keycode ==17 || e.which == 13 || e.keycoe ==13){
@@ -50,6 +74,8 @@ $('body').keydown(e =>{
             dragging = false;
         }
         current.keyPress();
+    }else if(e.which == 27 || e.keycode == 27){
+        clean();
     }
 })
 $("body").keyup(e =>{
@@ -57,5 +83,6 @@ $("body").keyup(e =>{
         forging = false;
         dragging = true;
         current.keyRelease();
+        history.map(data => render(data))
     }
 })

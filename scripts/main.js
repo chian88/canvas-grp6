@@ -31,7 +31,6 @@ $(function() {
 	$('.stroke >> div').on('click',function(e){
 		// let cls = $(this).attr('class').split(' ')[1];
 		let cls = extractColorFromEvent($(e.target))
-		// debugger;
 		current.strokeColor(cls);
 	})
 

@@ -1,13 +1,13 @@
 class Text extends PaintFunction {
-    constructor(fontSize){
+    constructor(){
         super();
         this.type = 'text';
-        this.size = fontSize;
+        // this.size = fontSize;
         this.text;
         this.context = context2;
         this.centerX;
         this.centerY;
-        this.fontSize();
+        // this.fontSize();
     }
     press(mouseX, mouseY, e){
         this.centerX = mouseX;
@@ -22,7 +22,7 @@ class Text extends PaintFunction {
         this.text = $('input[name="txt"]')[0].value
         $('input').remove();
         this.display();
-        history.push({type:this.type, text: this.text, center:{x:this.centerX, y:this.centerY}, size:this.size})
+        history.push({type:this.type, text: this.text, center:{x:this.centerX, y:this.centerY}, size:this.size, style: this.style})
         // history.push([this.type, this.text, this.centerX, this.centerY, this.size])
     }
     keyRelease(){
@@ -34,8 +34,8 @@ class Text extends PaintFunction {
         this.context.stroke();
         this.context.fill();
     }
-    fontSize(){
-        // let size = window.getComputedStyle(canvas, null).getPropertyValue('font-size');
-        this.context.font = `${this.size}px Arial`
-    }
+    // fontSize(){
+    //     // let size = window.getComputedStyle(canvas, null).getPropertyValue('font-size');
+    //     this.context.font = `${this.size}px Arial`
+    // }
 }

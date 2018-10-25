@@ -28,14 +28,15 @@ class Brush extends PaintFunction {
         history.push({
             type: this.type,
             dot : this.dot,
-            width : this.width
+            width : this.width,
+            style : this.style
         })
-        // history.push([this.type, this.dot, this.width])
     }
     draft(){
         this.context.beginPath();
         this.context.arc(this.centerX,this.centerY,this.width,0,2*Math.PI);
-        this.context.stroke();
+        // this.context.strokeStyle = 'transparent'
+        // this.context.stroke();
         this.context.fill();
     }
 }
