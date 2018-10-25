@@ -44,6 +44,9 @@ $(function() {
 	$(".sidebar").on("click", "div[id]", function(e) {
 		// debugger;
 		$div = $(e.currentTarget);
+		if($div.attr("id") === 'clear') {
+            return;
+        }
 		$sidebar = $div.closest(".sidebar");
 		$sidebar.find("div[id]").removeClass("active");
 		$div.toggleClass("active");
@@ -244,31 +247,24 @@ $(function() {
 	
 	
 	$('#line').on('click', ()=>{
-		console.log('line');
 		current = new Curve();
 	})
 	$('#circle').on('click', ()=>{
-		console.log('circle');
 		current = new Ellipse();
 	})
 	$('#polygon').on('click', ()=>{
-		console.log('polygon');
 		current = new Polygon();
 	})
 	$('#font').on('click', ()=>{
-		console.log('text');
 		current = new Text();
 	})
 	$('#rectangle').on('click', ()=>{
-		console.log('rectangle');
 		current = new Rectangle()
 	})
 	$('#pen').on('click', ()=>{
-		console.log('brush');
 		current = new Brush();
 	})
 	$('#eraser').on('click', ()=>{
-		console.log('eraser');
 		current = new Eraser();
 	})
 

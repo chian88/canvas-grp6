@@ -2,12 +2,10 @@ class Text extends PaintFunction {
     constructor(){
         super();
         this.type = 'text';
-        // this.size = fontSize;
         this.text;
         this.context = context2;
         this.centerX;
         this.centerY;
-        // this.fontSize();
     }
     press(mouseX, mouseY, e){
         this.centerX = mouseX;

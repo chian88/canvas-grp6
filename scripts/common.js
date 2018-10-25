@@ -24,7 +24,6 @@ let dragging;
 let forging;
 $('#canvasDraft').mousedown(e =>{
     if(e.button == 0){
-        console.log('type is : '+current.type);
         let mouseX = e.offsetX;
         let mouseY = e.offsetY;
         current.press(mouseX, mouseY, e)
@@ -36,7 +35,6 @@ $('#canvasDraft').mousedown(e =>{
         dragging = true;
     }
     else if (e.button == 2) {
-        console.log('finish');
         current.commit();
         history.map(data => render(data))
     }else{
@@ -44,11 +42,10 @@ $('#canvasDraft').mousedown(e =>{
     }
 })
 $('#canvasDraft').mouseup(()=>{
-    //new
-        if (current.type == 'curve') {
-            dragging = true;
-            forging = false;
-        }//
+    if (current.type == 'curve') {
+        dragging = true;
+        forging = false;
+    }
 })
 $('#canvasDraft').mousemove(e =>{
     if (current.type != 'text') {

@@ -24,7 +24,6 @@ class Rectangle extends PaintFunction {
             this.endX = mouseX;
             this.endY = mouseY;
             clean();
-            // history.map(data => render(data))
             this.display();
         }
     }
@@ -37,7 +36,6 @@ class Rectangle extends PaintFunction {
     keyPress(){
         this.forge()
         clean()
-        // history.map(data => render(data))
         this.display();
     }
     keyRelease(){
@@ -90,7 +88,6 @@ class Ellipse extends PaintFunction {
             this.endX = mouseX;
             this.endY = mouseY;
             clean();
-            // history.map(data => render(data))
             this.display();
         }
     }
@@ -103,7 +100,6 @@ class Ellipse extends PaintFunction {
     keyPress(){
         this.forge()
         clean()
-        // history.map(data => render(data))
         this.display();
     }
     keyRelease(){

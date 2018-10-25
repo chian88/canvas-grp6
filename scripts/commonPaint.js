@@ -64,17 +64,24 @@ function redo(){
 
 function render(data){
     context.beginPath();
-    if(data.length === 0){
+    if(data.length === 0 || data.type == 'clear'){
         cleanReal();
         clean();
-    }
-    switch(data.type){
+    }else{
+        context.fillStyle = data.style.fill;
+        context.strokeStyle = data.style.stroke;
+        context.lineWidth = data.style.width;
+        switch(data.type){
         case 'rect':
             context.rect(data.center.x, data.center.y, data.end.x - data.center.x, data.end.y - data.center.y)
+            context.stroke();
+            context.fill();
             break;
 
         case 'ellipse':
             context.ellipse(data.center.x, data.center.y, Math.abs(data.end.x - data.center.x) , Math.abs(data.end.y - data.center.y), 0 , 0 , 2*Math.PI)
+            context.stroke();
+            context.fill();
             break;
 
         case 'text':
@@ -82,12 +89,15 @@ function render(data){
             context.strokeStyle = data.style.stroke;
             context.font = `${data.style.bold} ${data.style.italic} ${data.size}px Arial`
             context.fillText(data.text ,data.center.x ,data.center.y);
+
             break;
 
         case 'curve':
             for(let i = 0 ; i < data.dot.length; i++){ 
                 context.moveTo(data.dot[i][0][0], data.dot[i][0][1])
                 context.quadraticCurveTo(data.dot[i][1][0], data.dot[i][1][1], data.dot[i][2][0], data.dot[i][2][1])
+                context.stroke();
+                context.fill();
             }
             break;
 
@@ -99,6 +109,8 @@ function render(data){
                 }
             }
             context.closePath();
+            context.stroke();
+            context.fill();
             break;
 
         case 'eraser' :
@@ -110,17 +122,7 @@ function render(data){
                 context.fill();
             }
             break; 
-
-        case 'clear':
-            break;
         }
-        context.fillStyle = data.style.fill;
-        context.strokeStyle = data.style.stroke;
-        context.lineWidth = data.style.width;
-        // context.fillStyle = data.fill;
-        // context.strokeStyle = data.stroke;
-        // context.lineWidth = data.width;
-        context.stroke();
-        context.fill();
     }
+}
 
