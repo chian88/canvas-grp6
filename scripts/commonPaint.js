@@ -11,11 +11,9 @@ class PaintFunction {
          this.transparency();
          this.fontSize();
      }
-    lineWeight(width = 5){
+    lineWeight(width = 15){
+        this.thick = width;
         this.context.lineWidth = this.style.width = width; 
-        if (this.type == 'brush') {
-            this.width = width;
-        }
     }
 
     fillColor(color = 'red'){
@@ -82,6 +80,7 @@ function render(data){
             context.closePath();
             break;
 
+        case 'eraser' :
         case 'brush':
             for(let i = 0 ; i < data.dot.length; i++){
                 context.beginPath();  

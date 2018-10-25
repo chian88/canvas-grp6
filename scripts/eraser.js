@@ -1,8 +1,8 @@
-class Brush extends PaintFunction {
+class Eraser extends PaintFunction {
     constructor(){
         super();
         this.context = context2;
-        this.type = 'brush'
+        this.type = 'eraser'
         this.centerX;
         this.centerY;
         this.thick;
@@ -12,7 +12,8 @@ class Brush extends PaintFunction {
         this.centerX = mouseX;
         this.centerY = mouseY;
         this.dot.push([this.centerX, this.centerY])
-        this.context.fillStyle = this.bg;
+        let bg = $('#canvasReal').css("background-color");
+        this.context.fillStyle = this.style.fill = bg;
         this.draft();
     }
     drag(mouseX, mouseY){
@@ -27,12 +28,11 @@ class Brush extends PaintFunction {
     commit(){
         dragging = false;
         this.style.stroke = this.style.fill
-        let cloneStyle = Object.assign({},this.style);
         history.push({
             type: this.type,
             dot : this.dot,
             width : this.width,
-            style : cloneStyle
+            style : this.style
         })
     }
     draft(){

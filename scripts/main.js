@@ -1,5 +1,4 @@
 $(function() {
-	var bgcolor = 'silver';
 	// topbar
 	$("#pen").on("click", function(e) {
         $("#topbar").children().hide();
@@ -52,7 +51,7 @@ $(function() {
 
 	$("div#background").on("click", function(e) {
 		var $event = $(e.target);
-		bgcolor = extractColorFromEvent($event);
+		var bgcolor = extractColorFromEvent($event);
 
 		$("#canvasReal").css("background-color", bgcolor);
 
@@ -274,6 +273,6 @@ $(function() {
 	})
 	$('#eraser').on('click', ()=>{
 		console.log('eraser');
-		current = new Brush(bgcolor);
+		current = new Eraser();
 	})
 })
