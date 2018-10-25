@@ -4,6 +4,9 @@ let canDraft = document.getElementById('canvasDraft');
 let context2 = canDraft.getContext('2d');
 let cw = canvas.width;
 let ch = canvas.height;
+context.lineJoin = context.lineCap = 'round';
+context2.lineJoin = context2.lineCap = 'round';
+
 
 // real canvas
 let history = [];
