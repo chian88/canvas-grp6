@@ -19,7 +19,8 @@ class Polygon extends PaintFunction {
     commit(){
         dragging = false;
         this.dot.push([this.endX, this.endY])
-        history.push({type:this.type, dot:this.dot, style : this.style})
+        let cloneStyle = Object.assign({},this.style);
+        history.push({type:this.type, dot:this.dot, style : cloneStyle})
         this.dot = [];
     }
 

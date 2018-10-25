@@ -12,7 +12,10 @@ class PaintFunction {
          this.fontSize();
      }
     lineWeight(width = 5){
-        this.context.lineWidth = this.style.width = width;  
+        this.context.lineWidth = this.style.width = width; 
+        if (this.type == 'brush') {
+            this.width = width;
+        }
     }
 
     fillColor(color = 'red'){
@@ -20,7 +23,7 @@ class PaintFunction {
     }
 
     strokeColor(color = 'black'){
-        this.context.strokeStyle = this.style.stroke  = color;
+        this.context.strokeStyle = this.style.stroke = color;
     }
 
     transparency(value = 1){ //change strokeStyle and fillStyle from 0.0 (fully transparent) to 1.0 (fully opaque) 
@@ -28,8 +31,8 @@ class PaintFunction {
     }
     fontSize(bold, italic, size){
         this.size = size;
-        this.style.bold = bold;
-        this.style.italic = italic;
+        this.style.bold = this.bold= bold;
+        this.style.italic =this.italic = italic;
         this.context.font = `${bold} ${italic} ${size}px Arial`
     }
 }
@@ -91,6 +94,9 @@ function render(data){
         context.fillStyle = data.style.fill;
         context.strokeStyle = data.style.stroke;
         context.lineWidth = data.style.width;
+        // context.fillStyle = data.fill;
+        // context.strokeStyle = data.stroke;
+        // context.lineWidth = data.width;
         context.stroke();
         context.fill();
     }

@@ -1,17 +1,18 @@
 class Brush extends PaintFunction {
-    constructor(){
+    constructor(color){
         super();
+        this.bg = color;
         this.context = context2;
         this.type = 'brush'
         this.centerX;
         this.centerY;
         this.dot = [];
-        this.width = 5;
     }
     press(mouseX, mouseY){
         this.centerX = mouseX;
         this.centerY = mouseY;
         this.dot.push([this.centerX, this.centerY])
+        this.context.fillStyle = this.bg;
         this.draft();
     }
     drag(mouseX, mouseY){
@@ -25,11 +26,13 @@ class Brush extends PaintFunction {
     }
     commit(){
         dragging = false;
+        this.style.stroke = this.style.fill
+        let cloneStyle = Object.assign({},this.style);
         history.push({
             type: this.type,
             dot : this.dot,
             width : this.width,
-            style : this.style
+            style : cloneStyle
         })
     }
     draft(){

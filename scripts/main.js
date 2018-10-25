@@ -1,4 +1,5 @@
 $(function() {
+	var bgcolor = 'silver';
 	// topbar
 	$("#pen").on("click", function(e) {
         $("#topbar").children().hide();
@@ -51,7 +52,7 @@ $(function() {
 
 	$("div#background").on("click", function(e) {
 		var $event = $(e.target);
-		var bgcolor = extractColorFromEvent($event);
+		bgcolor = extractColorFromEvent($event);
 
 		$("#canvasReal").css("background-color", bgcolor);
 
@@ -88,7 +89,6 @@ $(function() {
         boldState = boldState ? 'bold' : '';
         let fontSizeState = $(e.currentTarget).find("#font-size").val();
         fontSizeState = Number(fontSizeState);
-        debugger;
         current.fontSize(boldState, italicState, fontSizeState);
         
     });
@@ -110,7 +110,7 @@ $(function() {
 	})
 
 	$('#clear').on('click',function(){
-		clear();
+		clean();
 	})
 
 	//filter control
@@ -262,7 +262,7 @@ $(function() {
 	})
 	$('#font').on('click', ()=>{
 		console.log('text');
-		current = new Text(16);
+		current = new Text();
 	})
 	$('#rectangle').on('click', ()=>{
 		console.log('rectangle');
@@ -274,6 +274,6 @@ $(function() {
 	})
 	$('#eraser').on('click', ()=>{
 		console.log('eraser');
-		current = new Brush();
+		current = new Brush(bgcolor);
 	})
 })

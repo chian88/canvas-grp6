@@ -15,8 +15,8 @@ class Rectangle extends PaintFunction {
     }
     commit(){
         dragging = false;
-        history.push({type:this.type, center:{x:this.centerX, y:this.centerY}, end:{x:this.endX, y:this.endY},style : this.style})
-        // history.push([this.type, this.centerX, this.centerY, this.endX, this.endY])
+        let cloneStyle = Object.assign({},this.style);
+        history.push({type:this.type, center:{x:this.centerX, y:this.centerY}, end:{x:this.endX, y:this.endY},style : cloneStyle})
     }
     drag(mouseX, mouseY){
         if (dragging) {
@@ -80,8 +80,8 @@ class Ellipse extends PaintFunction {
     }
     commit(){
         dragging = false;
-        history.push({type:this.type, center:{x:this.centerX, y: this.centerY}, end:{x: this.endX, y: this.endY},style : this.style})
-        // history.push([this.type, this.centerX, this.centerY, this.endX, this.endY]);
+        let cloneStyle = Object.assign({},this.style);
+        history.push({type:this.type, center:{x:this.centerX, y: this.centerY}, end:{x: this.endX, y: this.endY},style : cloneStyle})
     }
     drag(mouseX, mouseY){
         if (dragging) {

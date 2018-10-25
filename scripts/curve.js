@@ -29,7 +29,8 @@ class Curve extends PaintFunction {
     commit(){
         dragging = false;
         this.dot.pop();
-        history.push({type: this.type, dot : this.dot, style : this.style})
+        let cloneStyle = Object.assign({},this.style);
+        history.push({type: this.type, dot : this.dot, style : cloneStyle})
         this.dot =[];
     }
     drag(mouseX, mouseY){

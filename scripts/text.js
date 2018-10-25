@@ -16,13 +16,14 @@ class Text extends PaintFunction {
         $('#newtext').remove();
         $('body').append(`<input type='text' name='txt' id="newtext"></input>`)
         // fontsize Y position
-        $('input[name="txt"]').css({'position':'absolute', 'top':`${e.clientY - this.size}px`, 'left':`${e.clientX}px`})
+        $('input[name="txt"]').css({'position':'absolute', 'top':`${e.clientY - this.size}px`, 'left':`${e.clientX}px`, 'font-size' : `${this.size}px`})
     } 
     keyPress(){
         this.text = $('input[name="txt"]')[0].value
         $('#newtext').remove();
         this.display();
-        history.push({type:this.type, text: this.text, center:{x:this.centerX, y:this.centerY}, size:this.size, style: this.style})
+        let cloneStyle = Object.assign({},this.style);
+        history.push({type:this.type, text: this.text, center:{x:this.centerX, y:this.centerY}, size:this.size, style: cloneStyle})
     }
     keyRelease(){
        
