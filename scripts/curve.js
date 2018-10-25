@@ -51,32 +51,12 @@ class Curve extends PaintFunction {
         this.context.stroke();
         this.context.fill();
     }
-    keyPress(){
-        clean()
-        this.draft();
-        this.display();
-    }
-    keyRelease(){
-        // this.dot.push([
-        //     [this.centerX, this.centerY],
-        //     [this.twistPx, this.twistPy],
-        //     [this.endX, this.endY]
-        // ])
-        // this.centerX = this.endX;
-        // this.centerY = this.endY;
-        // this.context.moveTo(this.centerX, this.centerY);
-        dragging = true;
-    }
     forge(mouseX, mouseY){
-        // this.twistPx = mouseX;
-        // this.twistPy = mouseY;
-
         //new
-        this.dot[this.dot.length-2][1][0] = mouseX
-        this.dot[this.dot.length-2][1][1] = mouseY
-        // clean()
-        // this.draft();
-        // this.display();
+        if(this.dot.length > 2){
+            this.dot[this.dot.length-2][1][0] = mouseX
+            this.dot[this.dot.length-2][1][1] = mouseY
+        }
     }
     draft(){
         for(let i = 0 ; i < this.dot.length; i++){
