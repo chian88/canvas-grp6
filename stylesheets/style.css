@@ -95,8 +95,17 @@
 
 /* canvas */
 
-#canvasField {
+#canvasReal, #canvasDraft {
 	background-color: #ccc;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#canvasDraft {
+	background-color: transparent;
+}
+#canvasRect{
+	position: relative;
 }
 
 

@@ -1,5 +1,3 @@
-var current;  /// because need to have a bigger context.
-
 $(function() {
 	$("#circle").on("click", function(e) {
 		$("#topbar").children().hide();
@@ -22,10 +20,26 @@ $(function() {
 
 	$("div#background").on("click", function(e) {
 		var $event = $(e.target);
-		var color = extractColorFromEvent($event);
+		var bgcolor = extractColorFromEvent($event);
 
-		$("#canvasField").css("background-color", color);
+		$("#canvasReal").css("background-color", bgcolor);
+
 	});
+
+	// color panel
+	$('.stroke >> div').on('click',function(e){
+		// let cls = $(this).attr('class').split(' ')[1];
+		let cls = extractColorFromEvent($(e.target))
+		// debugger;
+		current.strokeColor(cls);
+	})
+
+	$('.fill >> div').on('click',function(e){
+		// let cls = $(this).attr('class').split(' ')[1];
+		let cls = extractColorFromEvent($(e.target))
+		current.fillColor(cls);
+	})  
+
 
 	// effects js
 
@@ -72,33 +86,43 @@ $(function() {
 
 	// effects js - end
 
-
-
 	
 	
 	function extractColorFromEvent($event) {
 		return $event.attr('style').split(":")[1].trim().replace(";", '');
 	}
-	current = new Curve();
+	
 	
 	$('#clear').on('click', ()=>{
-		clean();
+		history.push([]);
+		history.map(data =>{render(data)})
 	})
 	$('#line').on('click', ()=>{
 		console.log('line');
-		debugger;
 		current = new Curve();
 	})
 	$('#circle').on('click', ()=>{
 		console.log('circle');
 		current = new Ellipse();
 	})
-	// $('#polygon').on('click', ()=>{
-	// 	console.log('polygon');
-	// 	current = new Polygon();
-	// })
-	// $('#font').on('click', ()=>{
-	// 	console.log('text');
-	// 	current = new Text();
-	// })
-})
+	$('#polygon').on('click', ()=>{
+		console.log('polygon');
+		current = new Polygon();
+	})
+	$('#font').on('click', ()=>{
+		console.log('text');
+		current = new Text(16);
+	})
+	$('#rectangle').on('click', ()=>{
+		console.log('rectangle');
+		current = new Rectangle()
+	})
+	$('#pen').on('click', ()=>{
+		console.log('brush');
+		current = new Brush();
+	})
+	$('#eraser').on('click', ()=>{
+		console.log('eraser');
+		current = new Brush();
+	});
+});
