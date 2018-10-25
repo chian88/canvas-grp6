@@ -7,6 +7,7 @@ let ch = canvas.height;
 
 // real canvas
 let history = [];
+let redoList = [];
 
 //modifier selector
 function modifier(mX, mY){
