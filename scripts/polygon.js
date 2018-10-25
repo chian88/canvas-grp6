@@ -19,7 +19,7 @@ class Polygon extends PaintFunction {
     commit(){
         dragging = false;
         this.dot.push([this.endX, this.endY])
-        history.push({type:this.type, dot:this.dot})
+        history.push({type:this.type, dot:this.dot, style : this.style})
         this.dot = [];
     }
 

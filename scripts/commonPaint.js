@@ -1,24 +1,37 @@
 class PaintFunction {
      // simply provide a basic structure to the programmers as reference only 
-     constructor(){}  
+     constructor(){
+         this.context = context2;
+         this.width;
+         this.fillColor;
+         this.strokeColor;
+         this.alpha;
+         this.size;
+         this.style = {};
+         this.fillColor();
+         this.lineWeight();
+         this.strokeColor();
+         this.transparency();
+         this.fontSize();
+     }  
 
-    lineWeight(width){
-        this.contextReal.lineWidth = width;
-        this.contextDraft.lineWidth = width;
+    lineWeight(width = 5){
+        this.context.lineWidth = this.style.width = this.width = width;
     }
 
-    fillColor(color){
-        this.contextReal.fillStyle = color;
-        this.contextDraft.fillStyle = color;
+    fillColor(color = 'red'){
+        this.context.fillStyle =  this.style.fill = this.fillColor = color;
     }
 
-    strokeColor(color){
-        this.contextReal.strokeStyle = color;
-        this.contextDraft.strokeStyle = color;
+    strokeColor(color = 'black'){
+        this.context.strokeStyle = this.style.stroke = this.strokeColor = color;
     }
 
-    transparency(value){ //change strokeStyle and fillStyle from 0.0 (fully transparent) to 1.0 (fully opaque) 
-         this.contextReal.globalAlpha = value;
-         this.contextDraft.globalAlpha = value;
+    transparency(value = 1){ //change strokeStyle and fillStyle from 0.0 (fully transparent) to 1.0 (fully opaque) 
+        this.context.globalAlpha = this.alpha = value;
+    }
+    fontSize(size = 16){
+        this.size = size;
+        this.context.font = `${size}px Arial`
     }
 }
